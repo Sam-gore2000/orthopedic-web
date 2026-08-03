@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiArrowUpRight } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
@@ -17,6 +17,7 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
+  const { pathname } = useLocation();
 
   return (
     <motion.header
@@ -31,24 +32,36 @@ const Navbar = () => {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.to}
-              onMouseEnter={() => setHovered(link.label)}
-              onMouseLeave={() => setHovered(null)}
-              className="relative px-3 py-2 text-sm font-semibold text-ink-dark/70 transition-colors hover:text-primary dark:text-ink-light/70"
-            >
-              {hovered === link.label && (
-                <motion.span
-                  layoutId="nav-hover-pill"
-                  className="absolute inset-0 -z-10 rounded-full bg-primary/10 dark:bg-white/10"
-                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                />
-              )}
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.to;
+            return (
+              <Link
+                key={link.label}
+                to={link.to}
+                onMouseEnter={() => setHovered(link.label)}
+                onMouseLeave={() => setHovered(null)}
+                className={`relative px-3 py-2 text-sm font-semibold transition-colors hover:text-primary ${
+                  isActive ? "text-primary" : "text-ink-dark/70 dark:text-ink-light/70"
+                }`}
+              >
+                {hovered === link.label && (
+                  <motion.span
+                    layoutId="nav-hover-pill"
+                    className="absolute inset-0 -z-10 rounded-full bg-primary/10 dark:bg-white/10"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  />
+                )}
+                {link.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active-dot"
+                    className="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -92,7 +105,9 @@ const Navbar = () => {
                   <Link
                     to={link.to}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-2 py-2 font-semibold"
+                    className={`block rounded-lg px-2 py-2 font-semibold ${
+                      pathname === link.to ? "text-primary" : ""
+                    }`}
                   >
                     {link.label}
                   </Link>

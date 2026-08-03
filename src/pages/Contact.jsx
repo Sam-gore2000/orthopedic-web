@@ -26,9 +26,9 @@ const Contact = () => {
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
       <div className="mx-auto mb-14 max-w-2xl text-center">
-        <span className="text-sm font-bold uppercase tracking-wide text-primary">Contact Us</span>
-        <h1 className="mt-2 text-4xl font-extrabold">We're here to <span className="text-gradient">help</span></h1>
-        <p className="mt-4 text-ink-dark/60 dark:text-ink-light/60">
+        <span className="eyebrow">Contact Us</span>
+        <h1 className="display-h1 mt-2">We're here to <span className="text-gradient">help</span></h1>
+        <p className="display-lead mt-4 text-ink-dark/60 dark:text-ink-light/60">
           Questions about appointments, billing, or a specific department? Reach out and our care coordination
           team will point you in the right direction.
         </p>

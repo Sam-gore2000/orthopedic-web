@@ -15,6 +15,15 @@
     @apply font-display font-bold tracking-tight;
   }
 
+  /* Golden-ratio display scale. Applied deliberately per-heading rather than
+     baked into h1–h3 tags, since not every h2 on the page is a section title. */
+  .display-hero { @apply text-hero font-display font-extrabold tracking-tight; }
+  .display-h1 { @apply text-h1 font-display font-extrabold tracking-tight; }
+  .display-h2 { @apply text-h2 font-display font-extrabold tracking-tight; }
+  .display-h3 { @apply text-h3 font-display font-bold tracking-tight; }
+  .display-lead { @apply text-lead; }
+  .eyebrow { @apply text-eyebrow font-bold uppercase tracking-[0.14em] text-primary; }
+
   ::selection {
     @apply bg-primary/20 text-primary;
   }
@@ -85,5 +94,37 @@
   /* Ambient background blobs: the site's single ambient-motion signature */
   .aurora-blob {
     @apply absolute rounded-full opacity-40 blur-3xl will-change-transform dark:opacity-30;
+  }
+
+  /* Slow-rotating conic mesh layered under the blobs, for a painterly,
+     Apple-Health-app gradient field instead of one flat surface color. */
+  .aurora-mesh {
+    @apply pointer-events-none absolute -inset-[20%] opacity-[0.16] will-change-transform dark:opacity-[0.22];
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      theme("colors.primary.DEFAULT") 0deg,
+      theme("colors.accent.violet") 100deg,
+      theme("colors.accent.DEFAULT") 190deg,
+      theme("colors.warning") 270deg,
+      theme("colors.primary.DEFAULT") 360deg
+    );
+  }
+
+  /* Fine film-grain overlay so large gradient fields read as textured and
+     premium rather than flat/plasticky. Extremely subtle by design. */
+  .grain-overlay {
+    @apply pointer-events-none absolute inset-0 opacity-[0.035] mix-blend-overlay dark:opacity-[0.05];
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Two-tone gradient text used for the site's warm CTA panels, distinct
+     from .text-gradient (primary/accent) used on headings. */
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent;
+  }
+
+  /* Animated gradient border ring for the signature CTA surfaces */
+  .cta-mesh {
+    @apply relative overflow-hidden bg-[length:200%_200%] bg-gradient-to-br from-primary via-accent to-accent-violet animate-gradientPan;
   }
 }

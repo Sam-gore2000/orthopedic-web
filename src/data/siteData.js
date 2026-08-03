@@ -2,6 +2,8 @@
 // website with an external booking link. All content lives here as plain
 // data so pages can import it directly with no loading states needed.
 
+import doctorPhoto from "../asset/doctor-photo.jpg";
+
 export const EXTERNAL_BOOKING_URL = "https://ors.gov.in/orsportal/";
 
 export const doctor = {
@@ -14,6 +16,7 @@ export const doctor = {
   hospitalBranch: "Dr. Abhishek Saini, Lucknow",
   phone: "+91 8175081034",
   bio: "Dr. A. Saini is an orthopedic and sports surgeon specializing in arthroscopic ligament repair, joint replacement, and sports injury management, helping athletes and active patients return safely to the activities they love.",
+  photo: doctorPhoto,
 };
 
 export const department = {

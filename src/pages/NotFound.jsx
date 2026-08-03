@@ -13,7 +13,7 @@ const NotFound = () => (
       <span className="glass-icon h-14 w-14 rounded-2xl">
         <LogoMark size={24} />
       </span>
-      <h1 className="text-6xl font-extrabold text-gradient">404</h1>
+      <h1 className="display-hero text-gradient">404</h1>
       <p className="text-lg font-semibold">Page not found</p>
       <p className="max-w-sm text-sm text-ink-dark/60 dark:text-ink-light/60">
         The page you're looking for doesn't exist or has been moved.

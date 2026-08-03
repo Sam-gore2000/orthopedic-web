@@ -3,14 +3,6 @@ import { FiShare2, FiMapPin, FiArrowUpRight, FiPhoneCall } from "react-icons/fi"
 import { getDepartmentColor } from "../utils/departmentColors";
 import { EXTERNAL_BOOKING_URL } from "../data/siteData";
 
-const initials = (name) =>
-  name
-    .replace(/^Dr\.?\s*/i, "")
-    .split(" ")
-    .map((n) => n[0])
-    .slice(0, 2)
-    .join("");
-
 // "Book Appointment" opens the government ORS portal in a new tab: there's
 // no in-app booking flow anymore, this site is purely informational.
 const DoctorCard = ({ doctor }) => {
@@ -28,19 +20,21 @@ const DoctorCard = ({ doctor }) => {
     >
       {/* Photo banner */}
       <div
-        className="relative flex h-40 items-center justify-center overflow-hidden"
+        className="relative flex h-48 items-end overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${brandColor}22, ${brandColor}55)`,
         }}
       >
         <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/20 blur-2xl" />
         <div className="absolute -bottom-10 -left-6 h-24 w-24 rounded-full bg-white/10 blur-2xl" />
-        <div
-          className="glass-icon relative flex h-20 w-20 rounded-full font-display text-2xl font-extrabold !text-white"
-          style={{ backgroundColor: brandColor }}
-        >
-          {initials(doctor.name)}
-        </div>
+        {doctor.photo ? (
+          <img
+            src={doctor.photo}
+            alt={doctor.name}
+            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : null}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent" />
         <button
           aria-label="Share doctor profile"
           className="glass-icon absolute right-3 top-3 h-8 w-8 rounded-full !text-ink-dark"

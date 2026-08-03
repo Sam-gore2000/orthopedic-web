@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { FiCheckCircle, FiActivity, FiArrowUpRight } from "react-icons/fi";
 import { department, doctor, EXTERNAL_BOOKING_URL } from "../data/siteData";
 import DoctorCard from "../components/DoctorCard";
+import MagneticButton from "../components/MagneticButton";
 
 const Section = ({ title, children }) => (
   <div className="mb-14">
-    <h2 className="mb-6 text-2xl font-extrabold">{title}</h2>
+    <h2 className="display-h3 mb-6">{title}</h2>
     {children}
   </div>
 );
@@ -26,10 +27,10 @@ const Specialty = () => {
             <span className="glass-icon mx-auto mb-4 h-16 w-16 rounded-2xl text-4xl">
               {dept.icon}
             </span>
-            <h1 className="text-4xl font-extrabold lg:text-5xl">
+            <h1 className="display-h1">
               <span className="text-gradient">{dept.name}</span>
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-dark/60 dark:text-ink-light/60">
+            <p className="display-lead mx-auto mt-4 max-w-2xl text-ink-dark/60 dark:text-ink-light/60">
               {dept.shortDescription}
             </p>
           </motion.div>
@@ -124,22 +125,23 @@ const Specialty = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5 }}
-          className="relative mt-8 flex flex-col items-center gap-4 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-accent px-8 py-12 text-center text-white shadow-glow"
+          className="cta-mesh relative mt-8 flex flex-col items-center gap-4 overflow-hidden rounded-xl3 px-8 py-14 text-center text-white shadow-glow-lg"
         >
           <div className="absolute -right-10 -top-16 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
-          <h2 className="relative text-2xl font-extrabold">Ready to book a consultation?</h2>
+          <h2 className="display-h2 relative text-gradient-warm">Ready to book a consultation?</h2>
           <p className="relative max-w-md text-white/80">
             Book an appointment with Dr. A. Saini through the official government appointment portal.
           </p>
-          <a
+          <MagneticButton
+            as="a"
             href={EXTERNAL_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-primary shadow-lg transition-transform hover:scale-[1.02]"
+            className="relative inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-primary shadow-lg"
           >
             Book Appointment <FiArrowUpRight />
-          </a>
+          </MagneticButton>
         </motion.div>
       </div>
     </div>

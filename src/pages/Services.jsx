@@ -9,6 +9,7 @@ import {
   FiArrowUpRight,
 } from "react-icons/fi";
 import { EXTERNAL_BOOKING_URL } from "../data/siteData";
+import MagneticButton from "../components/MagneticButton";
 
 const services = [
   { icon: FiActivity, title: "Sports Injury Diagnosis", desc: "Accurate diagnosis of ligament, joint, and muscle injuries using clinical exams and imaging." },
@@ -22,9 +23,9 @@ const services = [
 const Services = () => (
   <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
     <div className="mx-auto mb-14 max-w-2xl text-center">
-      <span className="text-sm font-bold uppercase tracking-wide text-primary">Our Services</span>
-      <h1 className="mt-2 text-4xl font-extrabold">How <span className="text-gradient">Dr. A. Saini</span> can help</h1>
-      <p className="mt-4 text-ink-dark/60 dark:text-ink-light/60">
+      <span className="eyebrow">Our Services</span>
+      <h1 className="display-h1 mt-2">How <span className="text-gradient">Dr. A. Saini</span> can help</h1>
+      <p className="display-lead mt-4 text-ink-dark/60 dark:text-ink-light/60">
         From first diagnosis to full recovery, every treatment plan is built around getting you back to the
         activities you care about, safely and efficiently.
       </p>
@@ -38,6 +39,7 @@ const Services = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.4, delay: i * 0.05 }}
+          whileHover={{ y: -4 }}
           className="card"
         >
           <span className="glass-icon mb-3 h-11 w-11 rounded-2xl">
@@ -54,19 +56,20 @@ const Services = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5 }}
-      className="relative mt-16 flex flex-col items-center gap-4 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-accent px-8 py-14 text-center text-white shadow-glow"
+      className="cta-mesh relative mt-16 flex flex-col items-center gap-4 overflow-hidden rounded-xl3 px-8 py-14 text-center text-white shadow-glow-lg"
     >
       <div className="absolute -right-10 -top-16 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
-      <h2 className="relative text-2xl font-extrabold">Ready to book a consultation?</h2>
-      <a
+      <h2 className="display-h2 relative text-gradient-warm">Ready to book a consultation?</h2>
+      <MagneticButton
+        as="a"
         href={EXTERNAL_BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-primary shadow-lg transition-transform hover:scale-[1.02]"
+        className="relative inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-primary shadow-lg"
       >
         Book Appointment <FiArrowUpRight />
-      </a>
+      </MagneticButton>
     </motion.div>
   </div>
 );
