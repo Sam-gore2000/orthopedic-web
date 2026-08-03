@@ -89,16 +89,24 @@ const Footer = () => (
             <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-ink-dark/50 dark:text-ink-light/50">
               Contact
             </h4>
-            <ul className="space-y-2 text-sm text-ink-dark/70 dark:text-ink-light/70">
-              <li className="flex items-center gap-2">
-                <FiPhoneCall className="shrink-0 text-primary" /> +91 8175081034
+            <ul className="space-y-3 text-sm text-ink-dark/70 dark:text-ink-light/70">
+              <li className="flex items-center gap-3">
+                <span className="glass-icon h-8 w-8 shrink-0 rounded-lg">
+                  <FiPhoneCall size={13} />
+                </span>
+                +91 8175081034
               </li>
-              <li className="flex items-center gap-2">
-                <FiMail className="shrink-0 text-primary" /> care@drabhisheksaini.example
+              <li className="flex items-center gap-3">
+                <span className="glass-icon h-8 w-8 shrink-0 rounded-lg">
+                  <FiMail size={13} />
+                </span>
+                care@drabhisheksaini.example
               </li>
-              <li className="flex items-start gap-2">
-                <FiMapPin className="mt-0.5 shrink-0 text-primary" />
-                Department Of Sports Medicine, King George's Medical College, Shah Mina Road, Chowk, Lucknow-226003, Uttar Pradesh
+              <li className="flex items-start gap-3">
+                <span className="glass-icon mt-0.5 h-8 w-8 shrink-0 rounded-lg">
+                  <FiMapPin size={13} />
+                </span>
+                <span>Department Of Sports Medicine, King George's Medical College, Shah Mina Road, Chowk, Lucknow-226003, Uttar Pradesh</span>
               </li>
             </ul>
           </div>

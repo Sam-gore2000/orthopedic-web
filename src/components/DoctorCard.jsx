@@ -20,7 +20,7 @@ const DoctorCard = ({ doctor }) => {
     >
       {/* Photo banner */}
       <div
-        className="relative flex h-48 items-end overflow-hidden"
+        className="relative flex h-72 items-end overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${brandColor}22, ${brandColor}55)`,
         }}
@@ -31,7 +31,7 @@ const DoctorCard = ({ doctor }) => {
           <img
             src={doctor.photo}
             alt={doctor.name}
-            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            className="h-full w-full object-cover object-[50%_12%] transition-transform duration-700 group-hover:scale-105"
           />
         ) : null}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent" />

@@ -73,12 +73,11 @@ export default {
         },
         drift: {
           "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "33%": { transform: "translate(3%, 4%) scale(1.06)" },
-          "66%": { transform: "translate(-3%, 2%) scale(0.97)" },
+          "50%": { transform: "translate(2%, 2.5%) scale(1.04)" },
         },
         driftSlow: {
           "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "50%": { transform: "translate(-4%, -5%) scale(1.08)" },
+          "50%": { transform: "translate(-2.5%, -2%) scale(1.05)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
@@ -88,14 +87,6 @@ export default {
           "0%, 100%": { opacity: "0.55" },
           "50%": { opacity: "1" },
         },
-        meshRotate: {
-          "0%": { transform: "rotate(0deg) scale(1.15)" },
-          "100%": { transform: "rotate(360deg) scale(1.15)" },
-        },
-        arcSweep: {
-          "0%": { strokeDashoffset: "220" },
-          "100%": { strokeDashoffset: "0" },
-        },
         gradientPan: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
@@ -103,12 +94,10 @@ export default {
       },
       animation: {
         floatUp: "floatUp 0.5s ease-out both",
-        drift: "drift 18s ease-in-out infinite",
-        driftSlow: "driftSlow 24s ease-in-out infinite",
+        drift: "drift 34s ease-in-out infinite",
+        driftSlow: "driftSlow 42s ease-in-out infinite",
         shimmer: "shimmer 2.5s linear infinite",
         pulseGlow: "pulseGlow 3s ease-in-out infinite",
-        meshRotate: "meshRotate 40s linear infinite",
-        arcSweep: "arcSweep 1.4s cubic-bezier(0.65,0,0.35,1) forwards",
         gradientPan: "gradientPan 8s ease infinite",
       },
     },

@@ -36,12 +36,12 @@ import media4 from "../asset/Media-4.jpg";
 import media5 from "../asset/Media-5.jpg";
 
 const gallery = [
-  { id: 1, img: media, span: "sm:row-span-2" },
-  { id: 2, img: media1, span: "" },
-  { id: 3, img: media2, span: "" },
-  { id: 4, img: media3, span: "" },
-  { id: 5, img: media4, span: "sm:row-span-2" },
-  { id: 6, img: media5, span: "" },
+  { id: 1, img: media },
+  { id: 2, img: media1 },
+  { id: 3, img: media2 },
+  { id: 4, img: media3 },
+  { id: 5, img: media4 },
+  { id: 6, img: media5 },
 ];
 
 const About = () => (
@@ -98,7 +98,7 @@ const About = () => (
             <img
               src={doctor.photo}
               alt={doctor.name}
-              className="aspect-[4/5] w-full rounded-xl2 object-cover object-top"
+              className="aspect-[3/4] w-full rounded-xl2 object-cover object-[50%_10%]"
             />
           </div>
           <motion.div
@@ -206,7 +206,7 @@ const About = () => (
         <span className="eyebrow">In Practice</span>
         <h2 className="display-h2 mt-2">Gallery</h2>
       </div>
-      <div className="grid auto-rows-[12rem] gap-4 sm:grid-cols-3 sm:auto-rows-[10rem]">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         {gallery.map((v, i) => (
           <motion.div
             key={v.id}
@@ -214,14 +214,14 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
-            className={`group relative overflow-hidden rounded-xl2 ${v.span}`}
+            className="group relative aspect-[4/5] overflow-hidden rounded-xl2"
           >
             <img
               src={v.img}
               alt={`Dr. Abhishek Saini in clinical practice, photo ${v.id}`}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </motion.div>
         ))}
       </div>
