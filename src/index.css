@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-ink-dark dark:text-ink-light bg-surface-light dark:bg-surface-dark antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  /* Visible keyboard focus, respected everywhere */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-surface-light dark:ring-offset-surface-dark;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Gradient text: the signature type treatment used on headings */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent;
+  }
+
+  /* Core frosted-glass panel */
+  .glass {
+    @apply relative rounded-2xl border border-white/60 bg-white/55 shadow-glass backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] dark:shadow-glass-dark;
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-glass-lg dark:hover:shadow-glass-lg-dark;
+  }
+
+  /* Frosted glass icon badge: used for every icon on the site */
+  .glass-icon {
+    @apply relative flex shrink-0 items-center justify-center rounded-2xl border border-white/70 bg-gradient-to-br from-white/70 to-white/20 text-primary shadow-glass backdrop-blur-md dark:border-white/15 dark:from-white/[0.14] dark:to-white/[0.03] dark:text-primary-light dark:shadow-glass-dark;
+  }
+
+  .glass-icon::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/40 dark:ring-white/5;
+  }
+
+  .card {
+    @apply glass glass-hover p-6;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 font-semibold text-white shadow-glow transition-all hover:scale-[1.02] hover:shadow-glass-lg active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply glass inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-semibold text-ink-dark transition-all hover:-translate-y-0.5 hover:border-primary/30 active:scale-[0.98] dark:text-ink-light;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-white/60 bg-white/50 px-4 py-2.5 text-sm text-ink-dark placeholder:text-slate-400 backdrop-blur-md transition-colors focus:border-primary dark:border-white/10 dark:bg-white/[0.05] dark:text-ink-light;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ink-dark/80 dark:text-ink-light/80;
+  }
+
+  /* Ambient background blobs: the site's single ambient-motion signature */
+  .aurora-blob {
+    @apply absolute rounded-full opacity-40 blur-3xl will-change-transform dark:opacity-30;
+  }
+}
